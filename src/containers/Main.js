@@ -9,6 +9,8 @@ class MainContainer extends Component {
     this.props.setNickName(nickName)
     this.props.pickGame()
     this.props.setStateGame(true)
+    this.props.generateChunks()
+    this.props.generateClasses()
     this.props.history.push('/game')
   }
 
@@ -22,7 +24,9 @@ class MainContainer extends Component {
 const mapDispatchToProps = (dispatch) => ({
   setNickName: (nickName) =>  dispatch(GameActions.setNickName(nickName)),
   pickGame: () => dispatch(GameActions.pickGame()),
-  setStateGame: (state) => dispatch(GameActions.setStateGame(state)) 
+  setStateGame: (state) => dispatch(GameActions.setStateGame(state)),
+  generateChunks: () => dispatch(GameActions.generateChunks()),
+  generateClasses: () => dispatch(GameActions.generateClasses()) 
 })
 
 const mapStateToProps = state => ({

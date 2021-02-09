@@ -16,3 +16,11 @@ body, html {
   height: 100%;
   width: 100%;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.line-5 {
+  line-height: 0.5;
+}
