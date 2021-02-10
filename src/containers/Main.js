@@ -29,7 +29,4 @@ const mapDispatchToProps = (dispatch) => ({
   generateClasses: () => dispatch(GameActions.generateClasses()) 
 })
 
-const mapStateToProps = state => ({
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer)
+export default connect(null, mapDispatchToProps)(MainContainer)

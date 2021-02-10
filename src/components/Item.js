@@ -7,7 +7,7 @@ export default class Item extends Component {
     isBadWord: false,
     setItem: null,
     removeItem: null,
-    finished: false
+    finished: false,
   }
   
   state = {
@@ -24,7 +24,7 @@ export default class Item extends Component {
   
 
   setFinishedClass = () => {
-    const { isBadWord } = this.props
+    const { isBadWord, baseClass } = this.props
     return isBadWord ? 'text-success text-bold cursor-pointer' : 'text-danger text-bold cursor-pointer'
   }
 

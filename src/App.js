@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import MainContainer from './containers/Main.js'
 import GameContainer from './containers/Game.js'
 import ScoreContainer from './containers/Score.js'
@@ -18,6 +16,7 @@ function App() {
               <Route path="/" component={MainContainer} exact/>
               <Route path="/game" component={GameContainer} />
               <Route path="/score" component={ScoreContainer} />
+              <Route path='*' component={MainContainer} />
             </Switch>
           </Col>
         </Row>

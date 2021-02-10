@@ -1,12 +1,14 @@
 import { connect } from 'react-redux'
-const ScoreContainer = ({nickName, results}) => {
+import { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+
+const ScoreContainer = ({nickName, results, played}) => {
+  const history = useHistory()
+  useEffect(() => !played && history.push('/'))
   const calcPoints = () => {
     const unCheckedCorrectResults = results.filter(result => !result.checked && result.isBadWord)
     const checkedUnCorrectResults = results.filter(result => result.checked && !result.isBadWord)
     const checkedCorrectResults = results.filter(result => result.checked && result.isBadWord)
-    console.log(checkedUnCorrectResults.length)
-    console.log(checkedCorrectResults.length)
-    console.log(unCheckedCorrectResults.length)
     return (checkedCorrectResults.length * 2) - (checkedUnCorrectResults.length + unCheckedCorrectResults.length)
   }
 
@@ -22,7 +24,8 @@ const ScoreContainer = ({nickName, results}) => {
 }
 const mapStateToProps = (state) => ({
   nickName: state.game.nickName,
-  results: state.game.results
+  results: state.game.results,
+  played: state.game.played
 })
 
 export default connect(mapStateToProps, null)(ScoreContainer)
